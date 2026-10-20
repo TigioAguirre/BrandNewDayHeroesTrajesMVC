@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Site.css")?v=@System.IO.File.GetLastWriteTimeUtc(Server.MapPath("~/Content/Site.css")).Ticks" rel="stylesheet" />
+</head>
+<body>
+    <main class="container page d-flex align-items-center justify-content-center">
+        <div class="hero-banner w-100" style="max-width:640px">
+            <h1>¡Oh no!</h1>
+            <p>Ocurrió un error al procesar tu solicitud. Hasta los héroes tienen un mal día.</p>
+            <a class="btn btn-gold btn-lg" href="@Url.Action("Index", "Home")">Volver al inicio</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<section class="hero-banner">
+    <h1>Armario de Trajes</h1>
+    <p>Administra a tus héroes y los trajes que visten. Elige una sección para comenzar.</p>
+    <a class="btn btn-gold btn-lg me-2" href="@Url.Action("Index", "Heroes")">Ver héroes</a>
+    <a class="btn btn-ghost btn-lg" href="@Url.Action("Index", "Trajes")">Ver trajes</a>
+
+    <div class="suit-row" aria-hidden="true">
+        <div class="capsule" style="--suit:#2b3a67"></div>
+        <div class="capsule" style="--suit:#d6283a"></div>
+        <div class="capsule" style="--suit:#c9ccd6"></div>
+        <div class="capsule" style="--suit:#e0202f"></div>
+        <div class="capsule" style="--suit:#4a78c9"></div>
+        <div class="capsule" style="--suit:#b3262f"></div>
+        <div class="capsule" style="--suit:#3a3f5c"></div>
+    </div>
+</section>
+
+<section class="row g-4 mt-2">
+    <div class="col-md-6">
+        <a class="feature-card" href="@Url.Action("Index", "Heroes")">
+            <span class="emoji">&#129464;</span>
+            <h3>Héroes</h3>
+            <p>Registra nombres y alias de tus héroes y mantén su información al día.</p>
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a class="feature-card" href="@Url.Action("Index", "Trajes")">
+            <span class="emoji">&#129509;</span>
+            <h3>Trajes</h3>
+            <p>Gestiona el catálogo de trajes disponibles en el armario.</p>
+        </a>
+    </div>
+</section>

@@ -1,0 +1,39 @@
+﻿@model BrandNewDayHeroesMvc.Models.Traje
+
+@{
+    ViewBag.Title = "Eliminar traje";
+}
+
+<div class="page-header">
+    <div>
+        <h2>Eliminar traje</h2>
+        <p class="subtitle">Esta acción no se puede deshacer</p>
+    </div>
+</div>
+
+<div class="panel-card panel-narrow">
+    <div class="panel-head">Confirmar eliminación</div>
+    <div class="panel-body">
+        <div class="warning-box">
+            <span class="icon">&#9888;&#65039;</span>
+            <span>¿Seguro que deseas eliminar este traje?</span>
+        </div>
+
+        <dl class="detail-list">
+            <div class="detail-row">
+                <dt>Nombre del traje</dt>
+                <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+            </div>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-hero">Sí, eliminar</button>
+                <a class="btn btn-ghost" href="@Url.Action("Index")">Cancelar</a>
+            </div>
+        }
+    </div>
+</div>

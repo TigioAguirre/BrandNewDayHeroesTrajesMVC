@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BrandNewDayHeroesMvc.Models.Traje>
+
+@{
+    ViewBag.Title = "Trajes";
+}
+
+<div class="page-header">
+    <div>
+        <h2>Trajes</h2>
+        <p class="subtitle">El catálogo del armario</p>
+    </div>
+    <a class="btn btn-hero" href="@Url.Action("Create")">+ Nuevo traje</a>
+</div>
+
+<div class="panel-card">
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <span class="big">&#129509;</span>
+            <p class="mb-0">Aún no hay trajes registrados.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hero table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre del traje</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@Html.DisplayFor(modelItem => item.Nombre)</td>
+                            <td class="actions">
+                                <a class="btn btn-sm btn-ghost" href="@Url.Action("Details", new { id = item.TrajeId })">Detalles</a>
+                                <a class="btn btn-sm btn-gold" href="@Url.Action("Edit", new { id = item.TrajeId })">Editar</a>
+                                <a class="btn btn-sm btn-hero" href="@Url.Action("Delete", new { id = item.TrajeId })">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

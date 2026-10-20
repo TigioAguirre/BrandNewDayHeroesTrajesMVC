@@ -1,0 +1,44 @@
+﻿@model BrandNewDayHeroesMvc.Models.Heroe
+
+@{
+    ViewBag.Title = "Nuevo héroe";
+}
+
+<div class="page-header">
+    <div>
+        <h2>Nuevo héroe</h2>
+        <p class="subtitle">Registra un nuevo defensor</p>
+    </div>
+</div>
+
+<div class="panel-card panel-narrow">
+    <div class="panel-head">Datos del héroe</div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.NombreHeroe, "Nombre del héroe", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.NombreHeroe, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej. Clark Kent" } })
+                @Html.ValidationMessageFor(model => model.NombreHeroe, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-4">
+                @Html.LabelFor(model => model.Alias, "Alias", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.Alias, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej. Superman" } })
+                @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-hero">Crear héroe</button>
+                <a class="btn btn-ghost" href="@Url.Action("Index")">Volver a la lista</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

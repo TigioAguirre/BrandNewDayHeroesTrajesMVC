@@ -1,0 +1,29 @@
+﻿@model BrandNewDayHeroesMvc.Models.Traje
+
+@{
+    ViewBag.Title = "Detalles del traje";
+}
+
+<div class="page-header">
+    <div>
+        <h2>Detalles del traje</h2>
+        <p class="subtitle">Ficha del traje</p>
+    </div>
+</div>
+
+<div class="panel-card panel-narrow">
+    <div class="panel-head">@Html.DisplayFor(model => model.Nombre)</div>
+    <div class="panel-body">
+        <dl class="detail-list">
+            <div class="detail-row">
+                <dt>Nombre del traje</dt>
+                <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+            </div>
+        </dl>
+
+        <div class="d-flex gap-2 mt-4">
+            <a class="btn btn-gold" href="@Url.Action("Edit", new { id = Model.TrajeId })">Editar</a>
+            <a class="btn btn-ghost" href="@Url.Action("Index")">Volver a la lista</a>
+        </div>
+    </div>
+</div>

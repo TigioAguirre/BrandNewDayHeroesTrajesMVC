@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BrandNewDayHeroesMvc.Models.Heroe>
+
+@{
+    ViewBag.Title = "Héroes";
+}
+
+<div class="page-header">
+    <div>
+        <h2>Héroes</h2>
+        <p class="subtitle">Los defensores registrados en el armario</p>
+    </div>
+    <a class="btn btn-hero" href="@Url.Action("Create")">+ Nuevo héroe</a>
+</div>
+
+<div class="panel-card">
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <span class="big">&#129464;</span>
+            <p class="mb-0">Aún no hay héroes registrados.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hero table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre del héroe</th>
+                        <th>Alias</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@Html.DisplayFor(modelItem => item.NombreHeroe)</td>
+                            <td><span class="alias-badge">@Html.DisplayFor(modelItem => item.Alias)</span></td>
+                            <td class="actions">
+                                <a class="btn btn-sm btn-ghost" href="@Url.Action("Details", new { id = item.HeroeId })">Detalles</a>
+                                <a class="btn btn-sm btn-gold" href="@Url.Action("Edit", new { id = item.HeroeId })">Editar</a>
+                                <a class="btn btn-sm btn-hero" href="@Url.Action("Delete", new { id = item.HeroeId })">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
